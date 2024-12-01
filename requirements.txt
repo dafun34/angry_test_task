@@ -1,0 +1,5 @@
+django
+pydantic-settings
+python-telegram-bot
+psycopg2-binary
+requests

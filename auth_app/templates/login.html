@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <h1>Авторизация через Telegram</h1>
+    <div id="user-info">
+        <p>Ожидание авторизации...</p>
+    </div>
+    <button id="telegram-login">Войти через Telegram</button>
+
+    <script>
+        document.getElementById('telegram-login').onclick = async () => {
+            const response = await fetch('/telegram-login/');
+            const data = await response.json();
+            window.open(data.redirect_url, '_blank');
+        };
+        // Проверяем статус аутентификации
+        async function checkAuthorization() {
+            const response = await fetch('/auth/status/');
+            const data = await response.json();
+
+            if (data.is_authenticated) {
+                window.location.href = '/';
+            } else {
+                const userInfoDiv = document.getElementById('user-info');
+                userInfoDiv.innerHTML = `<p>Ожидание авторизации...</p>`;
+            }
+        }
+        setInterval(checkAuthorization, 3000);
+    </script>
+</body>
+</html>

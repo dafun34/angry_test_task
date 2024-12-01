@@ -1,0 +1,15 @@
+# telegram
+BOT_TOKEN=7608818295:AAE1NMV-f6DjhzY3ZmBujAQ9IAi-IcSyDOI
+BOT_NAME=da_test_angry_bot
+
+# django
+
+DJANGO_PORT=8000
+DJANGO_HOST=0.0.0.0
+
+# DB
+POSTGRES_DB=telegram_auth
+POSTGRES_USER=user
+POSTGRES_PASSWORD=password
+DB_PORT=5432
+DB_HOST=db
